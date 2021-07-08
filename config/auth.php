@@ -46,6 +46,18 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'doctor' => [
+          'driver' => 'session',
+          'provider' => 'doctors',
+        ],
+        'nurse' => [
+            'driver' => 'session',
+            'provider' => 'nurses',
+        ],
+        'patient' => [
+          'driver' => 'session',
+          'provider' => 'patients',
+      ],
     ],
 
     /*
@@ -66,10 +78,22 @@ return [
     */
 
     'providers' => [
-        'users' => [
+          'users' => [
+              'driver' => 'eloquent',
+              'model' => App\Models\User::class,
+          ],
+          'doctors' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
-        ],
+            'model' => App\Models\Doctor::class,
+          ],
+          'nurses' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Nurse::class,
+          ],
+          'patients' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Patient::class,
+          ],
 
         // 'users' => [
         //     'driver' => 'database',
